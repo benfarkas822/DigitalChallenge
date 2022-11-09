@@ -14,7 +14,7 @@ let data = require('./drivers.json').sort(() => .5 - Math.random()).map((driver,
 
 
 app.get("/api/drivers", (req, res) => {
-    res.json(data);
+    res.json({data});
 });
 
 app.get("/api/drivers/:id/overtake", async (req, res) => {
@@ -28,12 +28,10 @@ app.get("/api/drivers/:id/overtake", async (req, res) => {
         }];
     }
 
-    res.json({
-        position, data
-    });
+    res.json({data});
 });
 
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000')
+app.listen(5000, () => {
+    console.log('Server is running on port 5000')
 });
